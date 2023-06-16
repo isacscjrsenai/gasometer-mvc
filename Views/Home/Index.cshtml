@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="pac-card" id="pac-card">
+      <div>
+        <div id="title">Gasmeter V1.0</div>
+        <div id="type-selector" class="pac-controls">
+          <input
+            type="radio"
+            name="type"
+            id="changetype-all"
+            checked="checked"
+          />
+          <label for="changetype-all">Todos</label>
+
+          <input type="radio" name="type" id="changetype-establishment" />
+          <label for="changetype-establishment">Estabelecimentos</label>
+
+          <input type="radio" name="type" id="changetype-address" />
+          <label for="changetype-address">Endereço</label>
+
+          <input type="radio" name="type" id="changetype-geocode" />
+          <label for="changetype-geocode">geocode</label>
+
+          <input type="radio" name="type" id="changetype-cities" />
+          <label for="changetype-cities">(Cidades)</label>
+
+          <input type="radio" name="type" id="changetype-regions" />
+          <label for="changetype-regions">(Regiões)</label>
+        </div>
+        <br />
+        <div id="strict-bounds-selector" class="pac-controls">
+          <input type="checkbox" id="use-location-bias" value="" checked />
+          <label for="use-location-bias">Viés para a visualização do mapa</label>
+
+          <input type="checkbox" id="use-strict-bounds" value="" />
+          <label for="use-strict-bounds">Limites estritos</label>
+        </div>
+      </div>
+      <div id="pac-container">
+        <input id="pac-input" type="text" placeholder="Digite o ponto de partida" />
+        <input id="pac-input-dest" type="text" placeholder="Digite o ponto de destino">
+      </div>
+      <div>
+        <h2>Distância</h2>
+        <p id="distancia"></p>
+      </div>
+    </div>
+    <div id="map"></div>
+    <div id="infowindow-content">
+      <span id="place-name" class="title"></span><br />
+      <span id="place-address"></span>
+    </div>
+
+    <!-- 
+      The `defer` attribute causes the callback to execute after the full HTML
+      document has been parsed. For non-blocking uses, avoiding race conditions,
+      and consistent behavior across browsers, consider loading using Promises.
+      See https://developers.google.com/maps/documentation/javascript/load-maps-js-api
+      for more information.
+      -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNH9-ROgWuWCmwFGdaSesJkZZ3riC4TFU&callback=initMap&libraries=places&v=weekly"
+      defer
+    ></script>
